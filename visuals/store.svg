@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#051320"/>
+  <g fill="none" stroke="#70ddff" stroke-width="2" opacity=".32">
+    <rect x="130" y="150" width="230" height="300" rx="10"/>
+    <rect x="410" y="110" width="230" height="380" rx="10"/>
+    <rect x="690" y="190" width="230" height="260" rx="10"/>
+    <rect x="235" y="520" width="230" height="190" rx="10"/>
+    <rect x="560" y="550" width="390" height="160" rx="10"/>
+  </g>
+  <g fill="#f7fafc">
+    <rect x="170" y="200" width="150" height="16" rx="8"/>
+    <rect x="450" y="160" width="150" height="16" rx="8"/>
+    <rect x="730" y="240" width="150" height="16" rx="8"/>
+    <rect x="275" y="570" width="150" height="16" rx="8"/>
+    <rect x="610" y="600" width="260" height="16" rx="8"/>
+  </g>
+  <text x="116" y="742" fill="#f7fafc" font-family="Inter, Arial" font-size="108" font-weight="900">STORE</text>
+  <text x="122" y="802" fill="#a8b5c4" font-family="Inter, Arial" font-size="25" letter-spacing="9">PLUGINS JURIDICOS</text>
+</svg>

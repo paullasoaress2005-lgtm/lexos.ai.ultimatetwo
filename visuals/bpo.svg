@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#06111c"/>
+  <g opacity=".32" stroke="#70ddff" stroke-width="2" fill="none">
+    <path d="M130 190h260v90h220v-50h360"/>
+    <path d="M170 610h260v-120h330v90h280"/>
+    <path d="M270 730V340h320"/>
+    <path d="M790 130v260h260"/>
+  </g>
+  <g fill="none" stroke="#d8dee9" stroke-width="2">
+    <rect x="140" y="128" width="230" height="134" rx="10" opacity=".5"/>
+    <rect x="430" y="286" width="298" height="178" rx="10" opacity=".8"/>
+    <rect x="800" y="520" width="270" height="160" rx="10" opacity=".5"/>
+  </g>
+  <g fill="#70ddff">
+    <circle cx="130" cy="190" r="9"/>
+    <circle cx="610" cy="280" r="9"/>
+    <circle cx="1040" cy="580" r="9"/>
+  </g>
+  <text x="116" y="752" fill="#f7fafc" font-family="Inter, Arial" font-size="110" font-weight="900">BPO</text>
+  <text x="122" y="812" fill="#a8b5c4" font-family="Inter, Arial" font-size="25" letter-spacing="9">PRODUCAO ASSISTIDA</text>
+</svg>

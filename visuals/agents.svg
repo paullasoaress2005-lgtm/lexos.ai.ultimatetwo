@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#020914"/>
+  <g transform="translate(600 420)" fill="none" stroke="#70ddff" stroke-width="2">
+    <circle r="90" opacity=".9"/>
+    <circle r="178" opacity=".42"/>
+    <circle r="272" opacity=".22"/>
+    <path d="M-272 0H272M0-272V272M-192-192 192 192M192-192-192 192" opacity=".28"/>
+  </g>
+  <g fill="#f7fafc">
+    <circle cx="600" cy="420" r="20"/>
+    <circle cx="328" cy="420" r="13"/>
+    <circle cx="872" cy="420" r="13"/>
+    <circle cx="600" cy="148" r="13"/>
+    <circle cx="600" cy="692" r="13"/>
+    <circle cx="408" cy="228" r="11"/>
+    <circle cx="792" cy="228" r="11"/>
+    <circle cx="408" cy="612" r="11"/>
+    <circle cx="792" cy="612" r="11"/>
+  </g>
+  <text x="116" y="742" fill="#f7fafc" font-family="Inter, Arial" font-size="98" font-weight="900">AGENTES</text>
+  <text x="122" y="802" fill="#a8b5c4" font-family="Inter, Arial" font-size="25" letter-spacing="9">SISTEMAS INTERNOS</text>
+</svg>
