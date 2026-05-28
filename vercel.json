@@ -8,6 +8,11 @@
       "destination": "/api/index.js"
     }
   ],
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "{index.html,styles.css,script.js,assets/**,visuals/**}"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
