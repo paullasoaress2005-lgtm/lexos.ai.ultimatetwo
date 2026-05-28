@@ -1,6 +1,5 @@
 const projects = [
   {
-    title: ["BPO", "Juridico"],
     eyebrow: "Frente 01",
     area: "Producao assistida",
     year: "2026",
@@ -8,10 +7,8 @@ const projects = [
       "Fluxos operacionais para transformar volume juridico em rotina controlada, com IA como apoio de producao, revisao e priorizacao.",
     href: "https://www.lexosai.com.br/bpo-juridico",
     visual: "./visuals/bpo.svg",
-    alt: "Visual abstrato do BPO Juridico",
   },
   {
-    title: ["Treina-", "mento"],
     eyebrow: "Frente 02",
     area: "Capacitacao aplicada",
     year: "2026",
@@ -19,10 +16,8 @@ const projects = [
       "Formacoes para equipes juridicas adotarem IA com seguranca, linguagem simples e exemplos conectados ao trabalho real.",
     href: "https://www.lexosai.com.br/treinamento",
     visual: "./visuals/training.svg",
-    alt: "Visual abstrato de treinamento juridico",
   },
   {
-    title: ["Agentes", "Sistemas"],
     eyebrow: "Frente 03",
     area: "Arquitetura de IA",
     year: "2026",
@@ -30,10 +25,8 @@ const projects = [
       "Agentes, automacoes e sistemas internos desenhados para reduzir retrabalho e organizar tarefas repetitivas da operacao juridica.",
     href: "https://www.lexosai.com.br/agentes-sistemas",
     visual: "./visuals/agents.svg",
-    alt: "Visual abstrato de agentes e sistemas",
   },
   {
-    title: ["Raio-X", "Juridico"],
     eyebrow: "Frente 04",
     area: "Diagnostico executivo",
     year: "2026",
@@ -41,10 +34,8 @@ const projects = [
       "Uma leitura objetiva da maturidade da operacao, com mapa de oportunidades para aplicar IA sem perder governanca.",
     href: "https://www.lexosai.com.br/raio-x",
     visual: "./visuals/raiox.svg",
-    alt: "Visual abstrato de diagnostico juridico",
   },
   {
-    title: ["LEX.OS", "Store"],
     eyebrow: "Marketplace 05",
     area: "Plugins juridicos",
     year: "2026",
@@ -52,12 +43,10 @@ const projects = [
       "Um ambiente de compra e descoberta para plugins, pacotes e solucoes prontas que ampliam o ecossistema LEX.OS.",
     href: "https://lexos-store.vercel.app",
     visual: "./visuals/store.svg",
-    alt: "Visual abstrato da LEX.OS Store",
   },
 ];
 
 const root = document.body;
-const titleEl = document.querySelector("#activeTitle");
 const eyebrowEl = document.querySelector("#activeEyebrow");
 const areaEl = document.querySelector("#activeArea");
 const yearEl = document.querySelector("#activeYear");
@@ -69,7 +58,6 @@ const progressText = document.querySelector("#progressText");
 const progressBar = document.querySelector("#progressBar");
 const rows = [...document.querySelectorAll(".project-row")];
 const stepButtons = [...document.querySelectorAll(".steps button")];
-const cursor = document.querySelector(".cursor");
 const clock = document.querySelector("#clock");
 
 let activeIndex = 0;
@@ -82,55 +70,59 @@ function pad(value) {
 }
 
 function updateClock() {
-  const now = new Date();
   const time = new Intl.DateTimeFormat("pt-BR", {
     timeZone: "America/Fortaleza",
     hour: "2-digit",
     minute: "2-digit",
-  }).format(now);
+  }).format(new Date());
+
   clock.textContent = `BRT ${time}`;
 }
 
-function setActive(index) {
+function updateProject(index, instant = false) {
   const nextIndex = (index + projects.length) % projects.length;
-  if (nextIndex === activeIndex && !root.classList.contains("is-ready")) return;
+  if (nextIndex === activeIndex && !instant) return;
 
   activeIndex = nextIndex;
   const project = projects[activeIndex];
+
   root.classList.add("is-switching");
-  root.classList.add("is-ready");
 
-  window.setTimeout(() => {
-    titleEl.innerHTML = project.title.map((line) => `<span>${line}</span>`).join("");
-    eyebrowEl.textContent = project.eyebrow;
-    areaEl.textContent = project.area;
-    yearEl.textContent = project.year;
-    descEl.textContent = project.description;
-    linkEl.href = project.href;
-    visualEl.src = project.visual;
-    visualEl.alt = project.alt;
-    counterEl.textContent = pad(activeIndex + 1);
+  window.setTimeout(
+    () => {
+      eyebrowEl.textContent = project.eyebrow;
+      areaEl.textContent = project.area;
+      yearEl.textContent = project.year;
+      descEl.textContent = project.description;
+      linkEl.href = project.href;
+      visualEl.src = project.visual;
+      counterEl.textContent = pad(activeIndex + 1);
 
-    const progress = Math.round((activeIndex / (projects.length - 1)) * 100);
-    progressText.textContent = `${progress}%`;
-    progressBar.style.setProperty("--progress", `${progress}%`);
+      const progress = Math.round((activeIndex / (projects.length - 1)) * 100);
+      progressText.textContent = `${progress}%`;
+      progressBar.style.setProperty("--progress", `${progress}%`);
 
-    rows.forEach((row) => row.classList.toggle("is-active", Number(row.dataset.index) === activeIndex));
-    stepButtons.forEach((button) =>
-      button.classList.toggle("is-active", Number(button.dataset.index) === activeIndex),
-    );
-  }, 170);
+      rows.forEach((row) => row.classList.toggle("is-active", Number(row.dataset.index) === activeIndex));
+      stepButtons.forEach((button) =>
+        button.classList.toggle("is-active", Number(button.dataset.index) === activeIndex),
+      );
+    },
+    instant ? 0 : 120,
+  );
 
-  window.setTimeout(() => {
-    root.classList.remove("is-switching");
-  }, 470);
+  window.setTimeout(
+    () => {
+      root.classList.remove("is-switching");
+    },
+    instant ? 80 : 430,
+  );
 }
 
 function navigate(direction) {
   const now = Date.now();
   if (now < lockUntil) return;
-  lockUntil = now + 680;
-  setActive(activeIndex + direction);
+  lockUntil = now + 620;
+  updateProject(activeIndex + direction);
 }
 
 window.addEventListener(
@@ -157,7 +149,9 @@ window.addEventListener("keydown", (event) => {
     navigate(-1);
   }
 
-  if (event.key === "Escape") root.classList.remove("show-method");
+  if (event.key === "Escape") {
+    root.classList.remove("show-method");
+  }
 });
 
 window.addEventListener(
@@ -178,13 +172,22 @@ window.addEventListener(
     const diffX = touchStartX - point.clientX;
     const primary = Math.abs(diffY) > Math.abs(diffX) ? diffY : diffX;
 
-    if (Math.abs(primary) > 46) navigate(primary > 0 ? 1 : -1);
+    if (Math.abs(primary) > 42) {
+      navigate(primary > 0 ? 1 : -1);
+    }
   },
   { passive: true },
 );
 
+window.addEventListener("mousemove", (event) => {
+  const x = event.clientX - window.innerWidth / 2;
+  const y = event.clientY - window.innerHeight / 2;
+  root.style.setProperty("--mx", `${x}px`);
+  root.style.setProperty("--my", `${y}px`);
+});
+
 [...rows, ...stepButtons].forEach((control) => {
-  control.addEventListener("click", () => setActive(Number(control.dataset.index)));
+  control.addEventListener("click", () => updateProject(Number(control.dataset.index)));
 });
 
 document.querySelectorAll('a[href="#sobre"]').forEach((link) => {
@@ -194,15 +197,6 @@ document.querySelectorAll('a[href="#sobre"]').forEach((link) => {
   });
 });
 
-document.querySelectorAll(".magnetic, .project-row, .steps button").forEach((element) => {
-  element.addEventListener("mouseenter", () => cursor.classList.add("is-active"));
-  element.addEventListener("mouseleave", () => cursor.classList.remove("is-active"));
-});
-
-window.addEventListener("mousemove", (event) => {
-  cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
-});
-
 updateClock();
 setInterval(updateClock, 30000);
-setActive(0);
+updateProject(0, true);
