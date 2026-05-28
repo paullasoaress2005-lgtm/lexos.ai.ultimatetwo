@@ -1,21 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
-  <rect width="1200" height="900" fill="#04111d"/>
-  <g stroke="#70ddff" stroke-width="2" opacity=".5" fill="none">
-    <path d="M160 650c150-320 380-430 650-300 150 72 240 40 320-90"/>
-    <path d="M160 650c210-120 390-100 540 20 140 110 260 110 386 30"/>
-    <path d="M230 250c120 130 270 150 450 52 220-120 350-40 450 190"/>
+  <rect width="1200" height="900" fill="#06111c"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M196 692c128-182 284-280 468-294 142-10 263 32 364 128" stroke="#70ddff" stroke-width="3" opacity=".26"/>
+    <path d="M214 258c155 62 295 82 420 60 124-22 236-83 336-184" stroke="#cbb56f" stroke-width="2" opacity=".24"/>
+    <path d="M270 652V256h592v396" stroke="#e8f7ff" stroke-width="2" opacity=".32"/>
+    <path d="M338 332h456M338 430h456M338 528h456" stroke="#70ddff" stroke-width="2" opacity=".22"/>
+    <path d="M874 284l116 70-116 70M256 284l-116 70 116 70" stroke="#e8f7ff" stroke-width="2" opacity=".28"/>
+    <circle cx="338" cy="332" r="11" fill="#70ddff" opacity=".52"/>
+    <circle cx="794" cy="430" r="11" fill="#cbb56f" opacity=".58"/>
+    <circle cx="566" cy="528" r="11" fill="#70ddff" opacity=".44"/>
+    <circle cx="566" cy="178" r="72" stroke="#e8f7ff" stroke-width="2" opacity=".22"/>
   </g>
-  <g fill="#f7fafc">
-    <circle cx="160" cy="650" r="18"/>
-    <circle cx="412" cy="390" r="13"/>
-    <circle cx="680" cy="302" r="22"/>
-    <circle cx="808" cy="670" r="14"/>
-    <circle cx="1086" cy="700" r="18"/>
-  </g>
-  <g fill="#c9b06e">
-    <circle cx="230" cy="250" r="12"/>
-    <circle cx="932" cy="288" r="18"/>
-  </g>
-  <text x="116" y="742" fill="#f7fafc" font-family="Inter, Arial" font-size="92" font-weight="900">TRAINING</text>
-  <text x="122" y="802" fill="#70ddff" font-family="Inter, Arial" font-size="25" letter-spacing="9">IMPLANTACAO</text>
 </svg>

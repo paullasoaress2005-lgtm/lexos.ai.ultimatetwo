@@ -1,19 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
-  <rect width="1200" height="900" fill="#051320"/>
-  <g fill="none" stroke="#70ddff" stroke-width="2" opacity=".32">
-    <rect x="130" y="150" width="230" height="300" rx="10"/>
-    <rect x="410" y="110" width="230" height="380" rx="10"/>
-    <rect x="690" y="190" width="230" height="260" rx="10"/>
-    <rect x="235" y="520" width="230" height="190" rx="10"/>
-    <rect x="560" y="550" width="390" height="160" rx="10"/>
+  <rect width="1200" height="900" fill="#06111c"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M280 248h640v404H280z" stroke="#e8f7ff" stroke-width="2" opacity=".34"/>
+    <path d="M280 352h640M408 248v404M536 248v404M664 248v404M792 248v404" stroke="#70ddff" stroke-width="2" opacity=".2"/>
+    <path d="M224 716c124-88 249-132 376-132s252 44 376 132" stroke="#cbb56f" stroke-width="2" opacity=".28"/>
+    <path d="M224 184c124 88 249 132 376 132s252-44 376-132" stroke="#70ddff" stroke-width="2" opacity=".22"/>
+    <rect x="346" y="312" width="124" height="104" rx="18" stroke="#e8f7ff" stroke-width="2" opacity=".28"/>
+    <rect x="538" y="428" width="124" height="104" rx="18" stroke="#e8f7ff" stroke-width="2" opacity=".36"/>
+    <rect x="730" y="312" width="124" height="104" rx="18" stroke="#e8f7ff" stroke-width="2" opacity=".28"/>
+    <circle cx="408" cy="364" r="12" fill="#70ddff" opacity=".52"/>
+    <circle cx="600" cy="480" r="12" fill="#cbb56f" opacity=".58"/>
+    <circle cx="792" cy="364" r="12" fill="#70ddff" opacity=".52"/>
   </g>
-  <g fill="#f7fafc">
-    <rect x="170" y="200" width="150" height="16" rx="8"/>
-    <rect x="450" y="160" width="150" height="16" rx="8"/>
-    <rect x="730" y="240" width="150" height="16" rx="8"/>
-    <rect x="275" y="570" width="150" height="16" rx="8"/>
-    <rect x="610" y="600" width="260" height="16" rx="8"/>
-  </g>
-  <text x="116" y="742" fill="#f7fafc" font-family="Inter, Arial" font-size="108" font-weight="900">STORE</text>
-  <text x="122" y="802" fill="#a8b5c4" font-family="Inter, Arial" font-size="25" letter-spacing="9">PLUGINS JURIDICOS</text>
 </svg>

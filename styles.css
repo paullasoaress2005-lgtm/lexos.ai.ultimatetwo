@@ -9,6 +9,8 @@
   --ease: cubic-bezier(0.2, 0.9, 0.18, 1);
   --mx: 0px;
   --my: 0px;
+  --spot-x: 72vw;
+  --spot-y: 44vh;
 }
 
 * {
@@ -50,19 +52,37 @@ button {
 
 .grid-field {
   z-index: 0;
+  overflow: hidden;
   background:
     linear-gradient(rgba(112, 221, 255, 0.055) 1px, transparent 1px),
     linear-gradient(90deg, rgba(112, 221, 255, 0.055) 1px, transparent 1px),
-    radial-gradient(circle at 74% 44%, rgba(112, 221, 255, 0.18), transparent 31%),
     linear-gradient(120deg, #06111c 0%, #071a2a 48%, #040b13 100%);
   background-attachment: fixed;
   background-size: 64px 64px, 64px 64px, auto, auto;
+  background-position:
+    calc(var(--mx) * -0.018) calc(var(--my) * -0.018),
+    calc(var(--mx) * -0.018) calc(var(--my) * -0.018),
+    0 0;
+  transition: background-position 480ms var(--ease);
+}
+
+.grid-field::before {
+  content: "";
+  position: absolute;
+  inset: -22%;
+  background:
+    radial-gradient(circle at var(--spot-x) var(--spot-y), rgba(112, 221, 255, 0.28), transparent 20%),
+    radial-gradient(circle at calc(var(--spot-x) - 18vw) calc(var(--spot-y) + 18vh), rgba(203, 181, 111, 0.13), transparent 22%);
+  filter: blur(4px);
+  transform: translate(calc(var(--mx) * 0.012), calc(var(--my) * 0.012));
+  transition: transform 600ms var(--ease), background 600ms var(--ease);
 }
 
 .grid-field::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(90deg, rgba(6, 17, 28, 0.96) 0%, rgba(6, 17, 28, 0.74) 42%, rgba(6, 17, 28, 0.22) 100%);
 }
 
@@ -99,7 +119,7 @@ button {
   max-height: 78vh;
   margin-right: clamp(-2rem, 1vw, 2rem);
   object-fit: contain;
-  opacity: 0.34;
+  opacity: 0.22;
   filter: grayscale(0.2) drop-shadow(0 40px 90px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 34px rgba(112, 221, 255, 0.22));
   transform: translate(calc(var(--mx) * -0.018), calc(var(--my) * -0.018)) scale(1.04);
   transition: opacity 420ms var(--ease), filter 520ms var(--ease), transform 780ms var(--ease);
@@ -365,7 +385,7 @@ body.is-switching .visual-backdrop img {
 .project-copy__description {
   min-height: 126px;
   margin: 0;
-  color: rgba(247, 251, 255, 0.68);
+  color: rgba(247, 251, 255, 0.76);
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(0.98rem, 1.15vw, 1.08rem);
   line-height: 1.62;
@@ -559,7 +579,7 @@ body.show-method .method-panel,
   }
 
   .grid-field::after {
-    background: linear-gradient(180deg, rgba(6, 17, 28, 0.92), rgba(6, 17, 28, 0.58) 50%, rgba(6, 17, 28, 0.9));
+    background: linear-gradient(180deg, rgba(6, 17, 28, 0.97), rgba(6, 17, 28, 0.86) 48%, rgba(6, 17, 28, 0.97));
   }
 
   .visual-backdrop {
@@ -567,17 +587,19 @@ body.show-method .method-panel,
   }
 
   .visual-backdrop img {
-    width: 92vw;
-    max-height: 54vh;
+    width: 84vw;
+    max-height: 40vh;
     margin: 0;
-    opacity: 0.21;
-    transform: translate(0, 4vh) scale(1.05);
+    opacity: 0.08;
+    filter: grayscale(0.1) blur(0.2px) drop-shadow(0 28px 70px rgba(0, 0, 0, 0.52));
+    transform: translate(8vw, 2vh) scale(1.02);
   }
 
   .visual-backdrop::before,
   .visual-backdrop::after {
     right: auto;
-    width: 94vw;
+    width: 82vw;
+    opacity: 0.5;
     transform: translateY(-46%);
   }
 
@@ -640,8 +662,8 @@ body.show-method .method-panel,
   }
 
   .project-row strong {
-    font-size: clamp(1.86rem, 9.7vw, 3.35rem);
-    line-height: 0.9;
+    font-size: clamp(1.75rem, 8.9vw, 3.05rem);
+    line-height: 0.92;
   }
 
   .project-copy {
@@ -656,13 +678,14 @@ body.show-method .method-panel,
   }
 
   .project-copy__details {
-    margin-bottom: 12px;
+    gap: 12px;
+    margin-bottom: 10px;
   }
 
   .project-copy__description {
-    min-height: 68px;
-    font-size: 0.84rem;
-    line-height: 1.43;
+    min-height: 58px;
+    font-size: 0.8rem;
+    line-height: 1.38;
   }
 
   .visit-link {

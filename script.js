@@ -65,6 +65,16 @@ let lockUntil = 0;
 let touchStartY = 0;
 let touchStartX = 0;
 
+function setInteractionPoint(clientX, clientY) {
+  const x = clientX - window.innerWidth / 2;
+  const y = clientY - window.innerHeight / 2;
+
+  root.style.setProperty("--mx", `${x}px`);
+  root.style.setProperty("--my", `${y}px`);
+  root.style.setProperty("--spot-x", `${clientX}px`);
+  root.style.setProperty("--spot-y", `${clientY}px`);
+}
+
 function pad(value) {
   return String(value).padStart(2, "0");
 }
@@ -86,6 +96,7 @@ function updateProject(index, instant = false) {
   activeIndex = nextIndex;
   const project = projects[activeIndex];
 
+  root.dataset.project = String(activeIndex + 1);
   root.classList.add("is-switching");
 
   window.setTimeout(
@@ -160,6 +171,16 @@ window.addEventListener(
     const point = event.touches[0];
     touchStartY = point.clientY;
     touchStartX = point.clientX;
+    setInteractionPoint(point.clientX, point.clientY);
+  },
+  { passive: true },
+);
+
+window.addEventListener(
+  "touchmove",
+  (event) => {
+    const point = event.touches[0];
+    setInteractionPoint(point.clientX, point.clientY);
   },
   { passive: true },
 );
@@ -180,10 +201,7 @@ window.addEventListener(
 );
 
 window.addEventListener("mousemove", (event) => {
-  const x = event.clientX - window.innerWidth / 2;
-  const y = event.clientY - window.innerHeight / 2;
-  root.style.setProperty("--mx", `${x}px`);
-  root.style.setProperty("--my", `${y}px`);
+  setInteractionPoint(event.clientX, event.clientY);
 });
 
 [...rows, ...stepButtons].forEach((control) => {
