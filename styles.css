@@ -350,6 +350,8 @@ button {
   aspect-ratio: 1;
   display: grid;
   place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .stage::before,
